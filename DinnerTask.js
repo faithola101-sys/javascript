@@ -1,7 +1,7 @@
 1.
 
 for (let number = 2; number <= 100; number += 2) {
-    process.stdout.write( number + " ");
+    console.log( number + " ");
 }
 
 2.
