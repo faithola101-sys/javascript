@@ -1,3 +1,5 @@
+const prompt = require("prompt-sync")
+
 let num = parseInt(prompt("Enter number: "));
 let factorial = 1;
 
