@@ -1,23 +1,50 @@
+import java.util.Scanner;
+
 public class TypingSpeedTest {
+
     public static void main(String[] args) {
-    //String word = ""
-    //String result = display(word);
-    //System.out.print(result)
-//}
+    Scanner input = new Scanner(System.in);    
 
-    //public static String display(String word) {
+    System.out.println("Kindly type:");
+    System.out.println("-".repeat(30));
 
-    System.out.print("Kindly type");
-    System.out.println("\nWelcome to semicolon");
-    System.out.print("\n" + "-".repeat(30) + "\n");
+    String originalSentence = "welcome to semicolon";
 
-    String word = "welcome to semicolon";
+    System.out.print(originalSentence + ": ");
+    long startTime = System.currentTimeMillis();
+    String typedSentence = input.nextLine().toLowerCase();
+
+    long endTime = System.currentTimeMillis();
+
+    double timeInSeconds = (endTime - startTime) / 1000.0;
+    double timeInMinutes = timeInSeconds / 60.0;
+
+    int numOfWords = typedSentence.split("\\s+").length;
+    double wordsPerMinute = numOfWords / timeInMinutes;
+
+
+    String[] originalWords = originalSentence.split("\\s+");
+    String[] typedWords = typedSentence.split("\\s+");
    
-        word.split(",");
+    int correctWords = 0;
+    for (int i = 0; i < Math.min(originalWords.length, typedWords.length); i++) {
+            
+    if (originalWords[i].equals(typedWords[i])) {
+                correctWords++;
+}
+}
+      
 
-    System.out.print(word);
+     double accuracy = ((double) correctWords / originalWords.length) * 100;
 
-} 
-}   
+ System.out.println("\nRESULTS");
+ System.out.println("-------------------------");
+ System.out.println("Time taken: " + timeInSeconds + " seconds");
+ System.out.println("Words per minute: " + wordsPerMinute);
+ System.out.println("Accuracy: " + accuracy + "%");
+
+}
+}
+ 
 
       
